@@ -8,9 +8,9 @@ terraform {
 }
 
 provider "huaweicloud" {
-  region     = var.hw_region     #实际的区域
-  access_key = var.hw_access_key #前面获取的key
-  secret_key = var.hw_secret_key #前面获取的key
+  region     = "cn-east-3"     #实际的区域
+#   access_key = var.hw_access_key #前面获取的key
+#   secret_key = var.hw_secret_key #前面获取的key
 }
 
 resource "huaweicloud_fgs_function" "fgs_function" {
