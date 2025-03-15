@@ -7,10 +7,10 @@ terraform {
   }
 
   backend "s3" {
-    bucket="backend-bucket"
-    region = "cn-east-3"
-    endpoints = {s3 = "https://obs.cn-east-3.myhuaweicloud.com"}
+    bucket   = "backend-bucket"
     key      = "test_func_cations/terraform.tfstate"
+    region   = "cn-east-3"
+    endpoint = "obs.cn-east-3.myhuaweicloud.com"  # 华为云 OBS 正确端点
 
     skip_region_validation      = true
     skip_metadata_api_check     = true
