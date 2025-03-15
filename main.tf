@@ -18,7 +18,7 @@ resource "huaweicloud_fgs_function" "fgs_function" {
   app         = "default"
   description = "function test"
   handler     = "index.handler"
-  memory_size = 128
+  memory_size = 256
   timeout     = 3
   runtime     = "Python3.9"
   code_type   = "inline"
