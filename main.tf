@@ -7,14 +7,10 @@ terraform {
   }
 }
 
-provider "huaweicloud" {
-  region     = "cn-east-3"     #实际的区域
-#   access_key = var.hw_access_key #前面获取的key
-#   secret_key = var.hw_secret_key #前面获取的key
-}
+provider "huaweicloud" {}
 
 resource "huaweicloud_fgs_function" "fgs_function" {
-  name        = "test_func_cations"
+  name        = "test_func_cations-2"
   app         = "default"
   description = "function test"
   handler     = "index.handler"

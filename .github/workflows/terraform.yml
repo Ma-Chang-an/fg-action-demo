@@ -16,16 +16,6 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
 
-    # - name: Configure HW Cloud Credentials
-    #   env:
-    #     HW_ACCESS_KEY: ${{ secrets.HW_ACCESS_KEY }}
-    #     HW_SECRET_KEY: ${{ secrets.HW_SECRET_KEY }}
-    #     HW_REGION: ${{ secrets.HW_REGION }}
-    #   run: |
-    #     export HW_ACCESS_KEY=$HW_ACCESS_KEY
-    #     export HW_SECRET_KEY=$HW_SECRET_KEY
-    #     export HW_REGION=$HW_REGION
-
     - name: Terraform Init
       run: terraform init
       env:
