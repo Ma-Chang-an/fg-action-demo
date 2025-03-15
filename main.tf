@@ -5,12 +5,23 @@ terraform {
       version = ">= 1.73.1"
     }
   }
+
+  backend "s3" {
+    bucket   = var.backend_bucket
+    key      = "test_func_cations/terraform.tfstate"
+    region   = var.backend_region
+    endpoint = format("obs.%s.myhuaweicloud.com", var.backend_region)
+
+    skip_region_validation      = true
+    skip_metadata_api_check     = true
+    skip_credentials_validation = true
+  }
 }
 
 provider "huaweicloud" {}
 
 resource "huaweicloud_fgs_function" "fgs_function" {
-  name        = "test_func_cations-2"
+  name        = "test_func_cations"
   app         = "default"
   description = "function test"
   handler     = "index.handler"
