@@ -7,17 +7,23 @@ terraform {
   }
 
   backend "s3" {
-    bucket   = "backend-bucket"
-    key      = "test_func_cations/terraform.tfstate"
-    region   = "cn-east-3"
-    endpoint = "obs.cn-east-3.myhuaweicloud.com"  # 华为云 OBS 正确端点
+    bucket  = "backend-bucket"
+    key     = "test_func_cations/terraform.tfstate"
+    region  = "cn-east-3"
 
-    force_path_style            = true
+    # 关键修复点 1：使用 endpoints.s3 代替废弃的 endpoint
+    endpoints = {
+      s3 = "https://obs.cn-east-3.myhuaweicloud.com"  # 必须包含协议头
+    }
 
+    # 关键修复点 2：强制路径格式（华为云 OBS 必须开启）
+    force_path_style = true
+
+    # 跳过 AWS 校验逻辑
     skip_region_validation      = true
-    skip_metadata_api_check     = true
     skip_credentials_validation = true
-    skip_requesting_account_id  = true
+    skip_metadata_api_check     = true
+    skip_requesting_account_id  = true  # 禁止获取 AWS 账户 ID
   }
 }
 
