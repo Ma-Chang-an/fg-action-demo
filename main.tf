@@ -14,7 +14,7 @@ provider "huaweicloud" {
 }
 
 resource "huaweicloud_fgs_function" "fgs_function" {
-  name        = "test_func_rf"
+  name        = "test_func_cations"
   app         = "default"
   description = "function test"
   handler     = "index.handler"
