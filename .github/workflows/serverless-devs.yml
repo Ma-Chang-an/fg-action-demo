@@ -17,5 +17,5 @@ jobs:
       # 默认密钥配置指令是阿里云密钥配置指令，更多可以参考：
       # 如何通过GitHub Action使用Serverless Devs做CI/CD：http://short.devsapp.cn/cicd/github/action/usage
       # Serverless Devs的官网是通过Serverless Devs部署的: http://short.devsapp.cn/cicd/github/action/practice
-      - run: s config add --AccessKeyID ${{secrets.HW_ACCESS_KEY}} --SecretAccessKey ${{secrets.HW_SECRET_KEY}}
+      - run: s config add -kl --AccessKeyID ${{secrets.HW_ACCESS_KEY}} --SecretAccessKey ${{secrets.HW_SECRET_KEY}} --AccountID default-account
       - run: s deploy                                
