@@ -8,7 +8,8 @@ terraform {
 
   backend "s3" {
     bucket="backend-bucket"
-    endpoint = "obs.cn-east-3.myhuaweicloud.com"
+    region = "cn-east-3"
+    endpoints = {s3 = "https://obs.cn-east-3.myhuaweicloud.com"}
     key      = "test_func_cations/terraform.tfstate"
 
     skip_region_validation      = true
