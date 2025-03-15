@@ -12,9 +12,12 @@ terraform {
     region   = "cn-east-3"
     endpoint = "obs.cn-east-3.myhuaweicloud.com"  # 华为云 OBS 正确端点
 
+    force_path_style            = true
+
     skip_region_validation      = true
     skip_metadata_api_check     = true
     skip_credentials_validation = true
+    skip_requesting_account_id  = true
   }
 }
 
