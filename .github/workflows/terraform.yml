@@ -13,7 +13,7 @@ jobs:
         HW_SECRET_KEY: ${{ secrets.HW_SECRET_KEY }}
         AWS_ACCESS_KEY_ID: ${{ secrets.HW_ACCESS_KEY }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.HW_SECRET_KEY }}
-        HW_REGION_NAME: ${{ secrets.HW_REGION }}
+        HW_REGION_NAME: ${{ vars.HW_REGION }}
         BACKEND_BUCKET: ${{ vars.BACKEND_BUCKET }}
     
     steps:
