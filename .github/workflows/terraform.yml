@@ -24,7 +24,7 @@ jobs:
       uses: hashicorp/setup-terraform@v3
 
     - name: Terraform Init
-      run: terraform init -backend-config="bucket=$BACKEND_BUCKET" -backend-config="region=$HW_REGION_NAME" -backend-config="endpoint=obs.$HW_REGION_NAME.myhuaweicloud.com"
+      run: terraform init -backend-config="bucket=$BACKEND_BUCKET" -backend-config="region=$HW_REGION_NAME" -backend-config="endpoints.s3=https://obs.$HW_REGION_NAME.myhuaweicloud.com"
 
     - name: Terraform Apply
       run: terraform apply -auto-approve
