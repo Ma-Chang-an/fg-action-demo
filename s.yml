@@ -1,0 +1,25 @@
+edition: 1.0.0 #  命令行YAML规范版本，遵循语义化版本（Semantic Versioning）规范
+name: fg-test #  项目名称
+access: "default" #  秘钥别名
+
+vars: # 全局变量
+    region: "cn-east-3"
+    functionName: "start-fg-event-nodejs14"
+
+services:
+    component-test: #  服务名称
+        component: fgs # 组件名称
+        props:
+            region: ${vars.region}
+            function:
+                functionName: ${vars.functionName} # 函数名
+                handler: index.handler # 函数执行入口
+                memorySize: 256 # 函数消耗的内存
+                timeout: 30 # 函数执行超时时间
+                runtime: Python3.9 # 运行时
+                environmentVariables: # 环境变量
+                    test: test
+                    hello: world
+                codeType: zip # 函数代码类型
+                code: # 本地代码地址
+                    codeUri: ./code
